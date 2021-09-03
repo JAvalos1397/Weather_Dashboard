@@ -1,0 +1,14 @@
+*{
+    /* border: 2px solid black; */
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: black;
+}
+
+.container-fluid {
+    margin-bottom: 5px;
+}
