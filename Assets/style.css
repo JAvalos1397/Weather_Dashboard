@@ -12,3 +12,24 @@
 .container-fluid {
     margin-bottom: 5px;
 }
+
+.citySearcher {
+    background-color: rgb(219, 219, 219);
+}
+.currentDay {
+ display: flex;
+}
+
+.default{
+    width: 100vw;
+    height:30vh
+}
+
+.center {
+    line-height: 100px;
+    text-align: center;
+}
+
+span {
+    margin-left: 5px;
+}
