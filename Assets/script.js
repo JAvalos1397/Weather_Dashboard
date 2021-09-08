@@ -25,14 +25,12 @@ function getWeather(userInput){
         .then(data => {
         
         const uv = data.current.uvi  
-         
-        renderWeather(name,temp,icon,wind,uv)
-        const forecast = data.daily;
-        forecast.forEach(element,i) => {
-                
-        renderForecast(forecast[i]);
+        // renderWeather(name,temp,icon,wind,uv)
 
-        }
+        const forecast = data.daily;
+        forecast.forEach((element) => {
+            renderForecast(element)
+        })
     })
     });
 }
