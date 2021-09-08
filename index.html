@@ -24,23 +24,30 @@
                 <input type="text" id="city" class="city">
                 <label class="form-label" for="city"><button type="submit" id='submit' class="btn btn-primary">Search</button></label>
             </form>
-
+              <div class="searchHistory" id="history">                
+                    <button type="button" class="btn btn-outline-dark card-body">Light</button>
+                    <button type="button" class="btn btn-outline-dark card-body">light</button>
+                    <button type="button" class="btn btn-outline-dark card-body">Light</button>  
+              </div>
+              <button type="button" class="btn btn-primary" id="clear">Clear History</button>
           </div>
           <div class="col-sm-9">
             <div class="row">
-              <div class="col-12 col-sm-12 default border">
-                  <div class="col-12 col-sm-12 currentDay" id='cityName'>
+              <div class="col-12 col-sm-12 default border" id="currentDay">
+                
+                  <div class="col-12 col-sm-12 currentDay empty" id='cityName'>
                     
                   </div>
-                  <div class="col-12 col-sm-12 currentDay" id="temp">
+                  <div class="col-12 col-sm-12 currentDay empty" id="temp">
                     
                   </div>
-                  <div class="col-12 col-sm-12 currentDay" id="wind">
+                  <div class="col-12 col-sm-12 currentDay empty" id="wind">
                     
                   </div>
-                  <div class="col-12 col-sm-12 currentDay" id="uv">
+                  <div class="col-12 col-sm-12 currentDay empty" id="uv">
                     
                   </div>
+                  
               </div>
               <hr>
               <div class="col-12 col-sm-12">
