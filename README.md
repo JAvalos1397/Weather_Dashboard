@@ -11,7 +11,7 @@ GitHub ![license](https://img.shields.io/badge/license-GitHub-brightgreen)
 Shows you the weather of a city both the current and 5 day forecast
 
 ## __Installation__
-Just open up the page
+Just open up the page https://pepsi1397.github.io/Weather_Dashboard/
 
 ## __usage__
 Checking out the weather of a city
