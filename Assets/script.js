@@ -4,6 +4,7 @@ const windContainer = $('#wind');
 const uvContainer = $('#uv');
 const historyContainer = $('#history')
 const currentContainer = $('#currentDay')
+const forecastContainer = $('#forecast')
 const apiKey = "5cd2b271a245b10cee40362f079a84fd";
 
 function getWeather(userInput){
@@ -12,7 +13,7 @@ function getWeather(userInput){
     fetch(getapiUrl)
     .then (response => response.json())
     .then(data => {
-        console.log(data)
+        
         const temp = data.main.temp;
         const icon = data.weather[0].icon;
         const wind = data.wind.speed;
@@ -25,7 +26,7 @@ function getWeather(userInput){
         .then(data => {
         
         const uv = data.current.uvi  
-        // renderWeather(name,temp,icon,wind,uv)
+        renderWeather(name,temp,icon,wind,uv)
 
         const forecast = data.daily;
         forecast.forEach((element) => {
@@ -40,10 +41,14 @@ $("#submit").on('click', function(event) {
  event.preventDefault(event);
  
  const userInput = $("#city").val();
+ if(userInput == '') {
+     alert('Please enter in a city!')
+ } else{
  $("#city").val('')
  getWeather(userInput);
  setHistory(userInput);
  $(".empty").empty();
+ }
 })
 
 //sending value of history
@@ -54,8 +59,46 @@ $(document).on('click','.card-body',function() {
     $(".empty").empty();
 })
 
+//render forecast
 function renderForecast(data){
-    console.log(data)
+    var date=new Date(data.dt*1000).toLocaleDateString();
+    // console.log(data)
+    console.log(data.temp.max)
+    console.log(data.humidity)
+    console.log(data.weather[0].icon)
+
+    const card = $('<div>');
+    const forecast = $('<div>');
+    const currentDate = $('<h4>')
+    const symbol = $('<img>');
+    const temp = $('<p>');
+    const humidity = $('<p>');
+
+    card.addClass('card')
+    card.attr('style', 'width:18rem;')
+    forecast.addClass('card-body bg-primary')
+
+    currentDate.addClass('card-title text-white')
+    currentDate.text(date)
+
+    symbol.attr('src', `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+    
+    temp.addClass('card-text text-white')
+    temp.text(`Temperature: ${data.temp.max}`)
+    
+    humidity.addClass("card-text text-white")
+    humidity.text(`Humidity: ${data.humidity}`)
+
+    forecastContainer.append(card);
+    card.append(forecast);
+    forecast.append(currentDate);
+    forecast.append(symbol);
+    forecast.append(temp);
+    forecast.append(humidity);
+
+
+
+
 }
 
 //renderCurrent weather 
